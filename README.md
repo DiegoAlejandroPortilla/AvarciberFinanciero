@@ -1,4 +1,5 @@
 # AvarciberFinanciero
 Cliente avarciber Financiero
-Intalación:
+
+Instalación:
 npm install

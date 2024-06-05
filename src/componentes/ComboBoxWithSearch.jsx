@@ -7,7 +7,7 @@ export default function ComboBox({ label, onChange}) {
   const [unidad, setUnidad] = React.useState([]); 
 
   React.useEffect(() => {
-    fetch('https://savarciber-production.up.railway.app/api/unidades') 
+    fetch('https://savarciberfinanciero-production.up.railway.app/api/unidades') 
       .then((response) => response.json())
       .then((data) => setUnidad(data))
       .catch((error) => console.error('Error fetching unidades:', error));

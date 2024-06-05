@@ -48,7 +48,7 @@ const TablaSeleccionar = () => {
   const handleGuardar = () => {
    // setDatos([...datos, formulario]);
     setModalOpen(false);
-    axios.post('https://savarciber-production.up.railway.app/api/tiposactivos', formulario)
+    axios.post('https://savarciberfinanciero-production.up.railway.app/api/tiposactivos', formulario)
     setFormulario({
       Descripcion: '',
     });

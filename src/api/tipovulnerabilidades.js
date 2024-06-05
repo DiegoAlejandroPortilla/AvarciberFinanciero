@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "https://savarciber-production.up.railway.app/api";
+const API = "https://savarciberfinanciero-production.up.railway.app/api";
 export const fetchTVulnerabilidades = () => {
     return axios.get(`${API}/TVulnerabilidades`);
   };

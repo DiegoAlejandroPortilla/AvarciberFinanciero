@@ -30,7 +30,7 @@ const TablaPB = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://savarciber-production.up.railway.app/api/probabilidad');
+        const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/api/probabilidad');
         setDatos(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -43,7 +43,7 @@ const TablaPB = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://savarciber-production.up.railway.app/api/amenazas');
+        const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/api/amenazas');
         setTipos(response.data);
   
         // Mapea AME_CODIGO a AME_NOMBRE para facilitar la búsqueda
@@ -95,12 +95,12 @@ const TablaPB = () => {
 
   const handleGuardar = async () => {
     if (modificarIndex !== -1) {
-      await axios.put(`https://savarciber-production.up.railway.app/api/probabilidad/${modificarIndex}`, formulario);
-      const response = await axios.get('https://savarciber-production.up.railway.app/api/probabilidad');
+      await axios.put(`https://savarciberfinanciero-production.up.railway.app/api/api/probabilidad/${modificarIndex}`, formulario);
+      const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/api/probabilidad');
       setDatos(response.data);
     } else {
-      await axios.post('https://savarciber-production.up.railway.app/api/probabilidad', formulario);
-      const response = await axios.get('https://savarciber-production.up.railway.app/api/probabilidad');
+      await axios.post('https://savarciberfinanciero-production.up.railway.app/api/api/probabilidad', formulario);
+      const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/api/probabilidad');
       setDatos(response.data);
     }
 
@@ -148,9 +148,9 @@ const TablaPB = () => {
   const handleEliminar = async (index) => {
     const idToDelete = datos[index].PRO_CODIGO;
 
-    await axios.delete(`https://savarciber-production.up.railway.app/api/probabilidad/${idToDelete}`);
+    await axios.delete(`https://savarciberfinanciero-production.up.railway.app/api/api/probabilidad/${idToDelete}`);
 
-    const response = await axios.get('https://savarciber-production.up.railway.app/api/probabilidad');
+    const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/api/probabilidad');
     setDatos(response.data);
 
     setModalOpen(false);

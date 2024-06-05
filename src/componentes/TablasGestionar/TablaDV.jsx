@@ -11,7 +11,7 @@ const TablaDV = () => {
     // Function to fetch data from the API when the component mounts
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://savarciber-production.up.railway.app/api/dimensionvaloracion');
+        const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/dimensionvaloracion');
         // Assuming the response data is an array, you can set it to the 'datos' state
         setDatos(response.data);
         console.log(datos)
@@ -57,22 +57,22 @@ const TablaDV = () => {
     if (modificarIndex !== -1) {
       console.log("update")
       // Modificar el dato existente en la posición 'modificarIndex'
-      await axios.put(`https://savarciber-production.up.railway.app/api/dimensionvaloracion/${modificarIndex}`, formulario);
+      await axios.put(`https://savarciberfinanciero-production.up.railway.app/api/dimensionvaloracion/${modificarIndex}`, formulario);
       // Now update the 'datos' state with the updated data
-      const response = await axios.get('https://savarciber-production.up.railway.app/api/dimensionvaloracion');
+      const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/dimensionvaloracion');
       setDatos(response.data);
     } else {
       // Agregar un nuevo dato
       console.log("nuevo")
       try {
         console.log("antes del await");
-        await axios.post('https://savarciber-production.up.railway.app/api/dimensionvaloracion', formulario);
+        await axios.post('https://savarciberfinanciero-production.up.railway.app/api/dimensionvaloracion', formulario);
         console.log("despues del await");
       }
       catch (error) { console.log(error) };
 
 
-      const response = await axios.get('https://savarciber-production.up.railway.app/api/dimensionvaloracion');
+      const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/dimensionvaloracion');
       setDatos(response.data);
     }
 
@@ -105,10 +105,10 @@ const TablaDV = () => {
     const codigoToDelete = datos[index].DIV_CODIGO;
 
     // Make the DELETE request to delete the data
-    await axios.delete(`https://savarciber-production.up.railway.app/api/dimensionvaloracion/${codigoToDelete}`);
+    await axios.delete(`https://savarciberfinanciero-production.up.railway.app/api/dimensionvaloracion/${codigoToDelete}`);
 
     // Fetch the updated data after the deletion
-    const response = await axios.get('https://savarciber-production.up.railway.app/api/dimensionvaloracion');
+    const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/dimensionvaloracion');
     setDatos(response.data);
 
     // Close the modal and reset the form

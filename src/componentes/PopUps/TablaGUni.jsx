@@ -29,7 +29,7 @@ const TablaUnidades = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://savarciber-production.up.railway.app/api/unidades');
+        const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/api/unidades');
         setDatos(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -62,15 +62,15 @@ const TablaUnidades = () => {
   const handleGuardar = async () => {
     if (modificarIndex !== -1) {
         // Modificar el dato existente en la posición 'modificarIndex'
-        await axios.put(`https://savarciber-production.up.railway.app/api/unidades/${modificarIndex}`, formulario);
+        await axios.put(`https://savarciberfinanciero-production.up.railway.app/api/api/unidades/${modificarIndex}`, formulario);
         // Now update the 'datos' state with the updated data
-        const response = await axios.get('https://savarciber-production.up.railway.app/api/unidades');
+        const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/api/unidades');
         setDatos(response.data);
       } else {
         // Agregar un nuevo dato
-        await axios.post('https://savarciber-production.up.railway.app/api/unidades', formulario);
+        await axios.post('https://savarciberfinanciero-production.up.railway.app/api/api/unidades', formulario);
         // Now fetch the updated data and update the 'datos' state
-        const response = await axios.get('https://savarciber-production.up.railway.app/api/unidades');
+        const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/api/unidades');
         setDatos(response.data);
       }
 
@@ -102,9 +102,9 @@ const TablaUnidades = () => {
   const handleEliminar = async (index) => {
     const codigoToDelete = datos[index].UNI_CODIGO;
 
-    await axios.delete(`https://savarciber-production.up.railway.app/api/unidades/${codigoToDelete}`);
+    await axios.delete(`https://savarciberfinanciero-production.up.railway.app/api/api/unidades/${codigoToDelete}`);
 
-    const response = await axios.get('https://savarciber-production.up.railway.app/api/unidades');
+    const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/api/unidades');
     setDatos(response.data);
 
     setModalOpen(false);

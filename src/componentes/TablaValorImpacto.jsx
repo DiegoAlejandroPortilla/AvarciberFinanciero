@@ -224,7 +224,7 @@ export default function EnhancedTable({ tableTitle, unidadSeleccionada, tipoActi
     // Function to fetch data from the API when the component mounts
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://savarciber-production.up.railway.app/api/unidades');
+        const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/unidades');
         // Assuming the response data is an array, you can set it to the 'datos' state
         setDatos(response.data);
       } catch (error) {

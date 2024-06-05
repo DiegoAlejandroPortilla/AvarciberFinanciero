@@ -6,7 +6,7 @@ export default function ComboBox({ label, onChange }) {
   const [unidad, setUnidad] = React.useState([]); 
 
   React.useEffect(() => {
-    fetch('https://savarciber-production.up.railway.app/api/tiposactivos') 
+    fetch('https://savarciberfinanciero-production.up.railway.app/api/tiposactivos') 
       .then((response) => response.json())
       .then((data) => setUnidad(data))
       .catch((error) => console.error('Error fetching tipos activos:', error));

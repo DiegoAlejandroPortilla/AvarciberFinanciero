@@ -91,7 +91,7 @@ export const VulnerabilidadAmenaza = () => {
       async function fetchData() {
         try {
           handleAddRow();
-          const activosResponse = await axios.get("https://savarciber-production.up.railway.app/api/activos");
+          const activosResponse = await axios.get("https://savarciberfinanciero-production.up.railway.app/api/activos");
           setActivos(
             activosResponse.data.map((item) => ({
               value: item.ACT_CODIGO,
@@ -99,7 +99,7 @@ export const VulnerabilidadAmenaza = () => {
             }))
           );
 
-          const vulnerabilidadesResponse = await axios.get("https://savarciber-production.up.railway.app/api/vulnerabilidades");
+          const vulnerabilidadesResponse = await axios.get("https://savarciberfinanciero-production.up.railway.app/api/vulnerabilidades");
           setVulnerabilidades(
             vulnerabilidadesResponse.data.map((item) => ({
               value: item.VUL_CODIGO,
@@ -107,7 +107,7 @@ export const VulnerabilidadAmenaza = () => {
             }))
           );
 
-          const amenazasResponse = await axios.get("https://savarciber-production.up.railway.app/api/amenazas");
+          const amenazasResponse = await axios.get("https://savarciberfinanciero-production.up.railway.app/api/amenazas");
           setAmenazas(
             amenazasResponse.data.map((item) => ({
               value: item.AME_CODIGO,
@@ -359,7 +359,7 @@ export const VulnerabilidadAmenaza = () => {
         console.log("Data being sent to API:", dataToSend);
 
         for (const data of dataToSend) {
-          await axios.post("https://savarciber-production.up.railway.app/api/amenazasvulnerabilidades", data);
+          await axios.post("https://savarciberfinanciero-production.up.railway.app/api/amenazasvulnerabilidades", data);
         }
       } catch (error) {
         console.error("Error saving data:", error);

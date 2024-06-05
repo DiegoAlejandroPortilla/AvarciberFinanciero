@@ -31,7 +31,7 @@ const TablaGA = () => {
     // Function to fetch data from the API when the component mounts
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://savarciber-production.up.railway.app/api/activos');
+        const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/activos');
         // Assuming the response data is an array, you can set it to the 'datos' state
         setDatos(response.data);
       } catch (error) {
@@ -46,7 +46,7 @@ const TablaGA = () => {
     // Function to fetch data from the API when the component mounts
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://savarciber-production.up.railway.app/api/tiposactivos');
+        const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/tiposactivos');
         // Assuming the response data is an array, you can set it to the 'datos' state
         setTipos(response.data);
       } catch (error) {
@@ -120,14 +120,14 @@ const TablaGA = () => {
   const handleGuardar = async () => {
     if (modificarIndex !== -1) {
       // Modificar el dato existente en la posición 'modificarIndex'
-      await axios.put(`https://savarciber-production.up.railway.app/api/activos/${modificarIndex}`, formulario);
+      await axios.put(`https://savarciberfinanciero-production.up.railway.app/api/activos/${modificarIndex}`, formulario);
       // Now update the 'datos' state with the updated data
-      const response = await axios.get('https://savarciber-production.up.railway.app/api/activos');
+      const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/activos');
       setDatos(response.data);
     } else {
-      await axios.post('https://savarciber-production.up.railway.app/api/activos', formulario);
+      await axios.post('https://savarciberfinanciero-production.up.railway.app/api/activos', formulario);
       // Now fetch the updated data and update the 'datos' state
-      const response = await axios.get('https://savarciber-production.up.railway.app/api/activos');
+      const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/activos');
       setDatos(response.data);
     }
 
@@ -189,10 +189,10 @@ const TablaGA = () => {
     const codigoToDelete = datos[index].TAC_CODIGO;
 
     // Make the DELETE request to delete the data
-    await axios.delete(`https://savarciber-production.up.railway.app/api/activos/${codigoToDelete}`);
+    await axios.delete(`https://savarciberfinanciero-production.up.railway.app/api/activos/${codigoToDelete}`);
 
     // Fetch the updated data after the deletion
-    const response = await axios.get('https://savarciber-production.up.railway.app/api/activos');
+    const response = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/activos');
     setDatos(response.data);
 
     // Close the modal and reset the form

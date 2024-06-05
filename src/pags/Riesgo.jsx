@@ -158,7 +158,7 @@ export const Riesgo = () => {
             setSelectedDate(date);
 
             try {
-                const response = await axios.get("https://savarciber-production.up.railway.app/api/amenazasvulnerabilidades/agrupacion/1");
+                const response = await axios.get("https://savarciberfinanciero-production.up.railway.app/api/amenazasvulnerabilidades/agrupacion/1");
 
                 // Filtrar activos por el rango de fechas del día seleccionado
                 const activosPorFecha = response.data.filter((item) => {
@@ -185,7 +185,7 @@ export const Riesgo = () => {
         useEffect(() => {
             async function getLista() {
                 try {
-                    const response = await axios.get("https://savarciber-production.up.railway.app/api/amenazasvulnerabilidades/agrupacion/1");
+                    const response = await axios.get("https://savarciberfinanciero-production.up.railway.app/api/amenazasvulnerabilidades/agrupacion/1");
                     setLista(response.data);
                     const newData = response.data.map((item) => item.ACT_NOMBRE);
                     setColumns({
@@ -428,7 +428,7 @@ export const Riesgo = () => {
 
                         try {
                             const activoVulnerabilidadResponse = await axios.get(
-                                `https://savarciber-production.up.railway.app/api/amenazasvulnerabilidades/tabla/${currentId}/${currentDate}`
+                                `https://savarciberfinanciero-production.up.railway.app/api/amenazasvulnerabilidades/tabla/${currentId}/${currentDate}`
                             );
 
                             console.log("Respuesta de la API:", activoVulnerabilidadResponse.data);
@@ -539,7 +539,7 @@ export const Riesgo = () => {
 
                         try {
                             const activoVulnerabilidadResponse = await axios.get(
-                                `https://savarciber-production.up.railway.app/api/amenazasvulnerabilidades/tabla/${currentId}/${currentDate}`
+                                `https://savarciberfinanciero-production.up.railway.app/api/amenazasvulnerabilidades/tabla/${currentId}/${currentDate}`
                             );
 
                             console.log("Datos de TablaResult:", activoVulnerabilidadResponse.data);
@@ -587,7 +587,7 @@ export const Riesgo = () => {
 
                     setTablaFinal(calculatedData);
 
-                    const riesgoResponse = await axios.get('https://savarciber-production.up.railway.app/api/amenazasvulnerabilidades/rangos');
+                    const riesgoResponse = await axios.get('https://savarciberfinanciero-production.up.railway.app/api/amenazasvulnerabilidades/rangos');
 
                     const riesgoMapeado = riesgoResponse.data.map((item) => ({
                         VAL_IMPACTO: item.VAL_IMPACTO,

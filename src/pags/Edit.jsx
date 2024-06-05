@@ -98,7 +98,7 @@ export const Edit = () => {
       async function fetchData() {
         try {
           const activoVulnerabilidadResponse = await axios.get(
-            'https://savarciber-production.up.railway.app/api/amenazasvulnerabilidades/total'
+            'https://savarciberfinanciero-production.up.railway.app/api/amenazasvulnerabilidades/total'
           );
 
           const mappedData = activoVulnerabilidadResponse.data.map((item) => {
@@ -208,7 +208,7 @@ export const Edit = () => {
       async function fetchData() {
         try {
           const activosResponse = await axios.get(
-            "https://savarciber-production.up.railway.app/api/activos"
+            "https://savarciberfinanciero-production.up.railway.app/api/activos"
           );
           setActivos(
             activosResponse.data.map((item) => ({
@@ -218,7 +218,7 @@ export const Edit = () => {
           );
 
           const vulnerabilidadesResponse = await axios.get(
-            "https://savarciber-production.up.railway.app/api/vulnerabilidades"
+            "https://savarciberfinanciero-production.up.railway.app/api/vulnerabilidades"
           );
           setVulnerabilidades(
             vulnerabilidadesResponse.data.map((item) => ({
@@ -228,7 +228,7 @@ export const Edit = () => {
           );
 
           const amenazasResponse = await axios.get(
-            "https://savarciber-production.up.railway.app/api/amenazas"
+            "https://savarciberfinanciero-production.up.railway.app/api/amenazas"
           );
           setAmenazas(
             amenazasResponse.data.map((item) => ({
@@ -237,7 +237,7 @@ export const Edit = () => {
             }))
           );
 
-          const amenazasVulnerabilidadesResponse = await axios.get("https://savarciber-production.up.railway.app/api/amenazasvulnerabilidades");
+          const amenazasVulnerabilidadesResponse = await axios.get("https://savarciberfinanciero-production.up.railway.app/api/amenazasvulnerabilidades");
 
           // Obtener todas las IDs de vulnerabilidades (pueden estar repetidas)
           const allVulnerabilityCodes = amenazasVulnerabilidadesResponse.data.map(item => item.VUL_CODIGO);
@@ -278,7 +278,7 @@ export const Edit = () => {
     const obtenerFechaVulnerabilidad = async (vulnerabilidadCodigo) => {
       try {
         const fechaResponse = await axios.get(
-          `https://savarciber-production.up.railway.app/api/amenazasvulnerabilidades/fecha/${vulnerabilidadCodigo}`
+          `https://savarciberfinanciero-production.up.railway.app/api/amenazasvulnerabilidades/fecha/${vulnerabilidadCodigo}`
         );
 
         if (fechaResponse.data && fechaResponse.data.length > 0 && fechaResponse.data[0].AMV_FECHA_INICION) {
@@ -297,7 +297,7 @@ export const Edit = () => {
 
     const sacarIddeActivo = async (activo) => {
       try {
-        const activoResponse = await axios.get(`https://savarciber-production.up.railway.app/api/activos/nombre/${activo}`);
+        const activoResponse = await axios.get(`https://savarciberfinanciero-production.up.railway.app/api/activos/nombre/${activo}`);
         console.log("Respuesta de la API en sacarIddeActivo:", activoResponse.data);
     
         // Verifica si la respuesta tiene la propiedad ACT_CODIGO
@@ -520,7 +520,7 @@ export const Edit = () => {
     
         for (const data of dataToSend) {
           console.log("Enviando datos:", data);
-          await axios.post("https://savarciber-production.up.railway.app/api/vulnerabilidadActivo", data);
+          await axios.post("https://savarciberfinanciero-production.up.railway.app/api/vulnerabilidadActivo", data);
           console.log("Datos enviados con éxito.");
         }
     
@@ -584,7 +584,7 @@ export const Edit = () => {
     
         for (const data of dataToSend) {
           console.log("Enviando datos:", data);
-          await axios.post("https://savarciber-production.up.railway.app/api/valorimpacto", data);
+          await axios.post("https://savarciberfinanciero-production.up.railway.app/api/valorimpacto", data);
           console.log("Datos enviados con éxito.");
         }
     

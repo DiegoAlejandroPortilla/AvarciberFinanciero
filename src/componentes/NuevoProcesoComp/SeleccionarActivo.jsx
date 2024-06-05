@@ -24,7 +24,7 @@ export default function SeleccionarActivo() {
   useEffect(() => {
     async function getLista() {
       try {
-        const response = await axios.get("https://savarciber-production.up.railway.app/api/activos");
+        const response = await axios.get("https://savarciberfinanciero-production.up.railway.app/api/activos");
         setLista(response.data);
         console.log(response.data);
         const newData = response.data.map((item) => item.ACT_NOMBRE);
